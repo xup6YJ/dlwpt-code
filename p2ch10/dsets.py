@@ -39,11 +39,12 @@ def getCandidateInfoList(requireOnDisk_bool=True):
 
     diameter_dict = {}
     with open('data/part2/luna/annotations.csv', "r") as f:
-        for row in list(csv.reader(f))[1:]:
+        for row in list(csv.reader(f))[1:]:  #[0]: colnames
             series_uid = row[0]
             annotationCenter_xyz = tuple([float(x) for x in row[1:4]])
             annotationDiameter_mm = float(row[4])
-
+            
+            #Add whole information into a list by one UID
             diameter_dict.setdefault(series_uid, []).append(
                 (annotationCenter_xyz, annotationDiameter_mm)
             )
