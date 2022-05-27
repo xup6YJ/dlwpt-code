@@ -194,7 +194,8 @@ class LunaDataset(Dataset):
         candidate_t = torch.from_numpy(candidate_a)
         candidate_t = candidate_t.to(torch.float32)
         candidate_t = candidate_t.unsqueeze(0)
-
+        
+        #Nodule [0,1]/ N[1,0]
         pos_t = torch.tensor([
                 not candidateInfo_tup.isNodule_bool,
                 candidateInfo_tup.isNodule_bool
