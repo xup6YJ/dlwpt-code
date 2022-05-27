@@ -53,7 +53,9 @@ def getCandidateInfoList(requireOnDisk_bool=True):
     with open('data/part2/luna/candidates.csv', "r") as f:
         for row in list(csv.reader(f))[1:]:
             series_uid = row[0]
-
+            
+            #False&True == False
+            #if False: continue  the UID will go through 
             if series_uid not in presentOnDisk_set and requireOnDisk_bool:
                 continue
 
