@@ -1,3 +1,8 @@
+# pip install SimpleITK
+# pip install diskcache
+# pip install cassandra-driver
+# pip install Tensorboard
+
 import argparse
 import datetime
 import os
