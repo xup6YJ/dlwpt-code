@@ -349,12 +349,12 @@ class SegmentationTrainingApp:
                 ctSlice_a = ct_t[dl.dataset.contextSlices_count].numpy()
 
                 image_a = np.zeros((512, 512, 3), dtype=np.float32)
-                image_a[:,:,:] = ctSlice_a.reshape((512,512,1))
-                image_a[:,:,0] += prediction_a & (1 - label_a)
+                image_a[:,:,:] = ctSlice_a.reshape((512,512,1))   #grey scale 
+                image_a[:,:,0] += prediction_a & (1 - label_a)    #FP red  
                 image_a[:,:,0] += (1 - prediction_a) & label_a
-                image_a[:,:,1] += ((1 - prediction_a) & label_a) * 0.5
+                image_a[:,:,1] += ((1 - prediction_a) & label_a) * 0.5  #FN red+0.5green = orange
 
-                image_a[:,:,1] += prediction_a & label_a
+                image_a[:,:,1] += prediction_a & label_a          #TP green  
                 image_a *= 0.5
                 image_a.clip(0, 1, image_a)
 
