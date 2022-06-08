@@ -132,10 +132,10 @@ class SegmentationTrainingApp:
 
     def initModel(self):
         segmentation_model = UNetWrapper(
-            in_channels=7,
+            in_channels=7,              #input_channel 6+1
             n_classes=1,
-            depth=3,
-            wf=4,
+            depth=3,                    #depth of UNet
+            wf=4,                       #2**wf of filters in the first conv
             padding=True,
             batch_norm=True,
             up_mode='upconv',
