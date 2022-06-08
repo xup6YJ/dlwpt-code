@@ -327,7 +327,7 @@ class TrainingLuna2dSegmentationDataset(Luna2dSegmentationDataset):
             candidateInfo_tup.center_xyz,
             (7, 96, 96),
         )
-        pos_a = pos_a[3:4]
+        pos_a = pos_a[3:4]  #middle mask slice as the training label
 
         row_offset = random.randrange(0,32)
         col_offset = random.randrange(0,32)
